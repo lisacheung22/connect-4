@@ -68,6 +68,7 @@ while not game_over:
             row = get_next_open_row(board, col)
             drop_piece(board, row, col, 1)
             if winning_move(board, 1):
+                print("Congrats! Player 1 won")
                 print_board(board)
                 game_over = True
         else:
@@ -78,7 +79,8 @@ while not game_over:
         if is_valid_location(board, col):
             row = get_next_open_row(board, col)
             drop_piece(board, row, col, 2)
-            if winning_move(board, 1):
+            if winning_move(board, 2):
+                print("Congrats! Player 2 won")
                 print_board(board)
                 game_over = True
         else:
