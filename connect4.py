@@ -1,19 +1,8 @@
 import numpy as np
-import pygame
-import sys
 import math
- 
-BLUE = (0,0,255)
-BLACK = (0,0,0)
-RED = (255,0,0)
-YELLOW = (255,255,0)
  
 ROW_COUNT = 6
 COLUMN_COUNT = 7
- 
-def create_board():
-    board = np.zeros((ROW_COUNT,COLUMN_COUNT))
-    return board
  
 def drop_piece(board, row, col, piece):
     board[row][col] = piece
@@ -110,6 +99,15 @@ def get_best_move(board, piece):
                 best_score = score
                 best_col = col
     return best_col
+
+
+def strategy(board, player_num):
+    col = get_best_move(board, 2)
+
+    while (not is_valid_location(board, col)):
+        col = get_best_move(board, 2)
+
+    return col
  
 while not game_over:
     print_board(board)
